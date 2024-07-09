@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.pngj"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="bg" class="bg-image bg"></div>
+    <main>
+      <div class="header">
+        <h1>Todo</h1>
+        <img class="switcher" src="images/icon-sun.svg" alt="" />
+      </div>
+      <form action="/add-todo" method="post">
+        <input class="question" type="text" name="task" placeholder="Create a new todo..." />
+      </form>
+     
+      <div class="todos">
+        <% for (let t of tasks) { %>
+          <div class="todos-single-task" draggable="true">
+            <div class="check"></div>
+            <p class="main-task <%= t.isActive ? '' : 'crossed' %>" data-id="<%= t._id %>"><%= t.description %></p>
+            <img class="cross" src="images/icon-cross.svg" alt="" />
+          </div>
+        <% } %>
+      </div>
+      
+
+          <div class="todos-end">
+          <p><span class="items-left">4</span> tasks left</p>
+          <div id="outside">
+            <p id="all" class="selected">All</p>
+            <p id="active">Active</p>
+            <p id="completed">Completed</p>
+          </div>
+          <p id="clear">Clear Completed</p>
+        </div>
+      </div>
+      <p class="tip">Drag and drop to reorder list</p>
+    </main>
+
+    <!-- Todo
+    items left All Active Completed Clear Completed Drag and drop to reorder
+    list -->
+    <script src="script.js"></script>
+  </body>
+</html>
